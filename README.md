@@ -94,7 +94,77 @@ This project demonstrates strong system administration skills, highlighting the 
 <img src="https://i.postimg.cc/y6XQpR1Q/Capture20.png" width="425"/> <img src="https://i.postimg.cc/J0fzBFsx/Capture21.png" width="425"/> 
 
 
-<img src="https://i.postimg.cc/9Qjfmv5F/Capture22.png" width="425"/>
+<h2>Configurating DHCP Server</h2>
+
+- DHCP automatically assigns IP addresses to devices on the network
+- Create a scope that assigns IPs from 172.16.0.100 to 172.16.0.200 (100 available addresses)
+- Set the lease duration to 8 days so assigned IPs stay reserved for each device during that period
+- This prevents IP shortages and ensures new devices can connect to the internet
+
+
+<img src="https://i.postimg.cc/gkbwjw3W/Capture14.png" width="425"/> <img src="https://i.postimg.cc/8z1jdqyX/Capture15.png" width="425"/> 
+
+
+<br />
+
+
+<img src="https://i.postimg.cc/TP11Fnvr/Capture16.png" width="425"/> <img src="https://i.postimg.cc/rmWV2Jnt/Capture17.png" width="425"/> 
+
+
+<h2>Creating Accounts For Domain</h2>
+
+- Use a PowerShell script to create over 1,000 user accounts
+- Script runs successfully with visual confirmation of the created accounts
+- Some duplicates were skipped, but can be fixed by updating the script to handle them
+- Example fix: add a "1" to the end of duplicate account names
+- Full script is named CREATE_USERS.ps1 and is located at the top of the repository
+
+
+<img src="https://i.postimg.cc/xCgs8r4r/Capture23.png" width="425"/> <img src="https://i.postimg.cc/RhFgnPkW/Capture24.png" width="425"/> 
+
+
+<br />
+
+
+<img src="https://i.postimg.cc/d3x4R2F4/Capture25.png" width="425"/> <img src="https://i.postimg.cc/fW22hNdm/Capture26.png" width="425"/> 
+
+
+<h2>Creating Client Virtual Machine</h2>
+
+- Create a new Virtual Machine named CLIENT1 to act as a domain user
+- Disable NAT on its network adapter to block direct internet access
+- Require internet access only through the Domain Controller on the Server VM
+- Set the network adapter to use the same internal network as the Domain Controller (per the initial diagram)
+- Ensuring connectivity to domain and internet by pinging google.com
+
+<img src="https://i.postimg.cc/d1MkznRz/Capture29.png" width="425"/> <img src="https://i.postimg.cc/fLxtZXBk/Capture30.png" width="425"/> 
+
+
+<br />
+
+
+<img src="https://i.postimg.cc/VvmSN6Vg/Capture31.png" width="425"/> <img src="https://i.postimg.cc/VvgJ0wy8/Capture34.png" width="425"/> 
+
+
+<h2>Verifying Active Directory Functionality</h2>
+
+- Rename the computer to CLIENT1 and choose to join the domain mydomain.com
+- Enter login credentials using the previously created Administrator account
+- Log into a user account created by the PowerShell script to confirm setup
+- Instead of using the VM’s default user, log into a domain user account with admin privileges
+- Use Command Prompt to check if the client VM received an IP address from the Domain Controller
+- Confirm successful IP lease from the Domain Controller
+- Successfully ping the domain to verify proper network connectivity
+
+<img src="https://i.postimg.cc/50nJw2tn/Capture35.png" width="425"/> <img src="https://i.postimg.cc/yxxHnCgB/Capture36.png" width="425"/> 
+
+
+<br />
+
+
+<img src="https://i.postimg.cc/6qPNmbnZ/Capture37.png" width="425"/> <img src="https://i.postimg.cc/gkwpZdbH/Capture38.png" width="425"/> 
+
+<img src="https://i.postimg.cc/0Nv1FwMV/Capture39.png" width="425"/> 
 
 
 
